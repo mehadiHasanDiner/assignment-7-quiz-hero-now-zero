@@ -61,29 +61,30 @@ const displayQuiz = (data) => {
   data.forEach((quiz, i) => {
     console.log(data);
     quizContainer.innerHTML += `<div class="m-3 py-3 px-4 shadow-sm rounded">
-  <div class="flex items-center">
-    <div class="h-8 w-8 bg-green-300 rounded-full flex justify-center items-center text-green-800 mr-3">
-      ${i + 1}
+    <div class="flex items-center">
+      <div class="h-8 w-8 bg-green-300 rounded-full flex justify-center items-center text-green-800 mr-3">
+        ${i + 1}
+      </div>
+      <p class="text-gray-800 text-sm">${quiz.question}</p>
     </div>
-    <p class="text-gray-800 text-sm">${quiz.quetion}</p>
-  </div>
-  <div class="grid grid-cols-2 gap-4 mt-5">
-    ${displayQuizOptions(quiz.options, i)}
-  </div>
-</div>`;
+    <div class="grid grid-cols-2 gap-4 mt-5">
+      ${displayQuizOptions(quiz.options, i)}
+    </div>
+  </div>`;
   });
 };
 
 // EventListener for quiz submit button
-document.querySelector("#submit").addEventlistener("click", () => {
+// startQuiz.addEventListener("click",
+document.querySelector("#submit").addEventListener("click", () => {
   if (answers.length < 6) {
     return;
   }
   quizTimer(true);
   answersContainer.innerHTML = `<div class="my-4">
-  <i class="fa-solid fa-fan animate-spin text-2xl text-green-600"></i>
-  <p class="text-xs animate-pulse">Please Wait, We are checking...</p>
-</div>`;
+      <i class="fa-solid fa-fan animate-spin text-2xl text-green-600"></i>
+      <p class="text-xs animate-pulse">Please Wait, We are checking...</p>
+    </div>`;
   let timeTaken = document.querySelector("#count");
   let totalMark = 0;
   let grade = {
