@@ -38,17 +38,30 @@
   <header class="h-16 flex items-center shadow-sm">
     <nav class="flex justify-between items-center w-9/12 mx-auto">
       <div class="text-zinc-800 font-bold uppercase">
-        <h1 class="text-lg">Quiz <span class="text-green-700">HERO</span></h1>
+        <h1 onclick="logoContainer()" class="text-lg cursor-pointer">Quiz <span class="text-green-700">HERO</span></h1>
         <p class="text-[10px] font-normal capitalize -mt-1">
           Get ready to Quiz and be amazed!
         </p>
       </div>
-      <button class="bg-green-600 font-light text-sm px-5 py-1 rounded text-white">
+      <button onclick="blogBtnClick()" class="bg-green-600 font-light text-sm px-5 py-1 rounded text-white">
         Blog
       </button>
     </nav>
   </header>
   <!-- Header/Navbar section end -->
+
+  <!-- Blog Section -->
+  <section class="lg:w-9/12 md:w-[90%] w-[95%] mx-auto text-center bg-purple-500" id="blog-container">
+    <h1 class="text-center my-8 text-xl">Welcome to My Blog</h1>
+    <ul class="text-sm my-10">
+      <li class="my-4">
+        <span class="bg-orange-200 px-2 rounded">Step 2:</span> After
+        clicking Start button, you will see a page with 3s count down, wait
+        until the count is over!
+      </li>
+    </ul>
+  </section>
+
 
   <!-- Landing page content start -->
   <section class="lg:w-9/12 md:w-[90%] w-[95%] mx-auto text-center" id="rulesContainer">

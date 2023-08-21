@@ -13,6 +13,22 @@ let quizContainer = document.querySelector("#quizContainer");
 let answersContainer = document.querySelector("#answersContainer");
 let displayResult = document.querySelector("#displayResult");
 
+const logoContainer = () => {
+  rulesContainer.classList.remove("hidden");
+  blogContainer();
+};
+
+const blogBtnClick = () => {
+  rulesContainer.classList.add("hidden");
+  document.getElementById("blog-container").classList.remove("hidden");
+};
+
+const blogContainer = () => {
+  document.getElementById("blog-container").classList.add("hidden");
+};
+
+blogContainer();
+
 // EventListener for quiz start button
 startQuiz.addEventListener("click", () => {
   let countDown = document.querySelector("#countDownContainer");
@@ -59,7 +75,6 @@ const displayQuiz = (data) => {
   }
 
   data.forEach((quiz, i) => {
-    console.log(data);
     quizContainer.innerHTML += `<div class="m-3 py-3 px-4 shadow-sm rounded">
     <div class="flex items-center">
       <div class="h-8 w-8 bg-green-300 rounded-full flex justify-center items-center text-green-800 mr-3">
