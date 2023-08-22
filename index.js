@@ -14,7 +14,7 @@ let answersContainer = document.querySelector("#answersContainer");
 let displayResult = document.querySelector("#displayResult");
 
 const logoContainer = () => {
-  rulesContainer.classList.remove("hidden");
+  window.location.reload();
   blogContainer();
 };
 
@@ -31,6 +31,7 @@ blogContainer();
 
 // EventListener for quiz start button
 startQuiz.addEventListener("click", () => {
+  document.getElementById("blog-btn").classList.add("hidden");
   let countDown = document.querySelector("#countDownContainer");
   let counter = document.querySelector("#counter");
   let counterNum = 2;
@@ -125,7 +126,7 @@ document.querySelector("#submit").addEventListener("click", () => {
   }
 
   // data setting on local storage and getting data from local storage
-  let storage = JSON.parse(localStorage.getItem("result"));
+  let storage = JSON.parse(localStorage.getItem("results"));
   if (storage) {
     localStorage.setItem(
       "results",
@@ -175,25 +176,26 @@ document.querySelector("#submit").addEventListener("click", () => {
       ? `<div class="mt-5">
       <h1 class="text-center">Previous Submissions <button class="text-blue-800 text-xs" onclick={localStorage.clear();location.reload()}>Clear History</button></h1>
     <div
-    class="flex justify-between items-center border rounded p-2 my-2 shadow-sm font-medium">
-    <div>Marks</div>
-    <div>Grade</div>
-    <div>Time</div>
+      class="flex justify-between items-center border rounded p-2 my-2 shadow-sm font-medium">
+      <div>Marks</div>
+      <div>Grade</div>
+      <div>Time</div>
     </div>
-    ${storage
-      ?.reverse()
-      ?.map(
-        (item) => `<div
-      class="flex justify-between items-center border rounded p-2 my-2 shadow-sm">
-      <div>${item.marks}/60</div>
-      <div>${item.status}</div>
-      <div>${item.examTime}</div>
-      </div>`
-      )
-      ?.join("")}`
+      ${storage
+        ?.reverse()
+        ?.map(
+          (item) => `<div
+        class="flex justify-between items-center border rounded p-2 my-2 shadow-sm">
+        <div>${item.marks}/60</div>
+        <div>${item.status}</div>
+        <div>${item.examTime}</div>
+        </div>`
+        )
+        ?.join("")}`
       : ""
   }
-  </div>
+
+    </div>
   `;
 
     clearTimeout(x);
